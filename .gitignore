@@ -1,0 +1,7 @@
+# build derivado: gerado por build.sh a partir do index.html + assets/
+artifact.html
+
+# lixo de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
