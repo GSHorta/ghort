@@ -8,6 +8,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap">
@@ -17,16 +18,17 @@
 <style>
 /* ==========================================================
    GHORT — portfólio
-   Mesmo vocabulário da home: preto, Outfit, e o peso da fonte
-   como forma de interação — Thin parado, Bold no hover.
-   As capas vêm do Behance, servidas daqui para não depender
-   do CDN deles nem entregar o carregamento a terceiros.
+   Fundo claro: o trabalho é colorido e ganha ar sobre branco.
+   A home segue preta — a troca de fundo marca a passagem da
+   marca para os projetos.
+   O peso da fonte continua sendo a interação: Thin parado,
+   Bold no hover.
    ========================================================== */
 :root{
-  --void:#000000;
-  --paper:#FFFFFF;
-  --smoke:#8C8590;
-  --line:rgba(255,255,255,.14);
+  --fundo:#FFFFFF;
+  --tinta:#0A0A0A;
+  --suave:#6B6570;      /* cinza com viés violeta, não cinza morto */
+  --linha:rgba(0,0,0,.13);
   --ui:"Outfit","Century Gothic",system-ui,-apple-system,sans-serif;
   --w-fina:100;
   --w-cheia:700;
@@ -36,19 +38,19 @@
 
 *,*::before,*::after{box-sizing:border-box}
 body{
-  margin:0;background:var(--void);color:var(--paper);
+  margin:0;background:var(--fundo);color:var(--tinta);
   font-family:var(--ui);font-weight:var(--w-fina);
   font-size:16px;line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--paper);outline-offset:4px;border-radius:4px}
-::selection{background:var(--paper);color:var(--void)}
+:focus-visible{outline:2px solid var(--tinta);outline-offset:4px;border-radius:4px}
+::selection{background:var(--tinta);color:var(--fundo)}
 
 .wrap{max-width:1520px;margin-inline:auto;padding-inline:var(--gutter)}
 
-/* ---------- texto que engrossa no hover, igual à home ---------- */
+/* ---------- texto que engrossa no hover ---------- */
 .lk{display:inline-grid;justify-items:start}
 .lk::before{
   content:attr(data-t);grid-area:1/1;
@@ -65,15 +67,13 @@ a:hover .lk>span,a:focus-visible .lk>span{font-weight:var(--w-cheia)}
 .top{
   display:flex;align-items:center;justify-content:space-between;gap:20px;
   padding-block:clamp(22px,4vh,38px);
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid var(--linha);
 }
 .mark img{height:clamp(26px,3vw,38px);width:auto}
-.mark{display:block;opacity:.95;transition:opacity .3s ease}
-.mark:hover{opacity:1}
-.voltar{font-size:clamp(.85rem,1.1vw,.95rem);color:var(--smoke)}
-.voltar .lk>span{color:var(--smoke);transition:font-weight .44s var(--ease),color .3s ease}
-.voltar:hover .lk>span{color:var(--paper)}
-
+.mark{display:block}
+.voltar{font-size:clamp(.85rem,1.1vw,.95rem);color:var(--suave)}
+.voltar .lk>span{color:var(--suave);transition:font-weight .44s var(--ease),color .3s ease}
+.voltar:hover .lk>span{color:var(--tinta)}
 
 /* ---------- grade ---------- */
 .grid{
@@ -85,18 +85,18 @@ a:hover .lk>span,a:focus-visible .lk>span{font-weight:var(--w-cheia)}
 .card{display:block;position:relative}
 .shot{
   position:relative;overflow:hidden;border-radius:14px;
-  background:#0E0E10;border:1px solid var(--line);
+  background:#F2F0F3;border:1px solid var(--linha);
   aspect-ratio:808/632;
 }
 .shot img{
   width:100%;height:100%;object-fit:cover;
-  transition:transform .7s var(--ease),opacity .4s ease;
+  transition:transform .7s var(--ease);
 }
 .card:hover .shot img,.card:focus-visible .shot img{transform:scale(1.045)}
-/* véu que recua no hover: a capa acende quando o mouse chega */
+/* véu claro que recua no hover: a capa desbota parada e acende ao passar */
 .shot::after{
   content:"";position:absolute;inset:0;
-  background:rgba(0,0,0,.34);
+  background:rgba(255,255,255,.38);
   transition:opacity .5s ease;
 }
 .card:hover .shot::after,.card:focus-visible .shot::after{opacity:0}
@@ -107,10 +107,10 @@ a:hover .lk>span,a:focus-visible .lk>span{font-weight:var(--w-cheia)}
 }
 .titulo{font-size:clamp(1rem,1.35vw,1.2rem);letter-spacing:-.01em}
 .seta{
-  flex:none;color:var(--smoke);font-size:1.05rem;line-height:1;
+  flex:none;color:var(--suave);font-size:1.05rem;line-height:1;
   transition:transform .45s var(--ease),color .3s ease;
 }
-.card:hover .seta,.card:focus-visible .seta{transform:translateX(5px);color:var(--paper)}
+.card:hover .seta,.card:focus-visible .seta{transform:translateX(5px);color:var(--tinta)}
 
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important}
@@ -120,21 +120,20 @@ a:hover .lk>span,a:focus-visible .lk>span{font-weight:var(--w-cheia)}
 <div class="wrap">
   <div class="top">
     <a class="mark" href="./" aria-label="Ghort — voltar ao início">
-      <img src="assets/wordmark.webp" alt="ghort">
+      <img src="assets/wordmark-escuro.webp" alt="ghort">
     </a>
     <a class="voltar" href="./">
       <span class="lk" data-t="← voltar ao início"><span>← voltar ao início</span></span>
     </a>
   </div>
 
-
   <main class="grid">
 
     <a class="card" href="fruit-flavor.html">
-      <div class="shot"><img src="assets/work/fruit.webp" alt="Capa do projeto Fruit & Flavor" loading="lazy" width="760" height="594"></div>
+      <div class="shot"><img src="assets/work/fruit.webp" alt="Capa do projeto Fruit &amp; Flavor" loading="lazy" width="760" height="594"></div>
       <div class="meta">
         <span class="titulo lk" data-t="Fruit &amp; Flavor"><span>Fruit &amp; Flavor</span></span>
-        <span class="seta" aria-hidden="true">→</span>
+        <span class="seta" aria-hidden="true">&rarr;</span>
       </div>
     </a>
 
@@ -142,7 +141,7 @@ a:hover .lk>span,a:focus-visible .lk>span{font-weight:var(--w-cheia)}
       <div class="shot"><img src="assets/work/athena.webp" alt="Capa do projeto Athena Baby" loading="lazy" width="760" height="594"></div>
       <div class="meta">
         <span class="titulo lk" data-t="Athena Baby"><span>Athena Baby</span></span>
-        <span class="seta" aria-hidden="true">→</span>
+        <span class="seta" aria-hidden="true">&rarr;</span>
       </div>
     </a>
 
@@ -150,13 +149,12 @@ a:hover .lk>span,a:focus-visible .lk>span{font-weight:var(--w-cheia)}
       <div class="shot"><img src="assets/work/itau.webp" alt="Capa do projeto Contas Vencidas — Itaú" loading="lazy" width="760" height="594"></div>
       <div class="meta">
         <span class="titulo lk" data-t="Contas Vencidas — Itaú"><span>Contas Vencidas — Itaú</span></span>
-        <span class="seta" aria-hidden="true">→</span>
+        <span class="seta" aria-hidden="true">&rarr;</span>
       </div>
     </a>
 
   </main>
 </div>
-
 
 </body>
 </html>
