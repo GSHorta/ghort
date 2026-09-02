@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfólio — Ghort Estúdio Criativo</title>
+<meta name="description" content="Projetos de identidade visual, 3D, motion e direção de arte da Ghort.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap">
+</head>
+<body>
+
+<style>
+/* ==========================================================
+   GHORT — portfólio
+   Mesmo vocabulário da home: preto, Outfit, e o peso da fonte
+   como forma de interação — Thin parado, Bold no hover.
+   As capas vêm do Behance, servidas daqui para não depender
+   do CDN deles nem entregar o carregamento a terceiros.
+   ========================================================== */
+:root{
+  --void:#000000;
+  --paper:#FFFFFF;
+  --smoke:#8C8590;
+  --line:rgba(255,255,255,.14);
+  --ui:"Outfit","Century Gothic",system-ui,-apple-system,sans-serif;
+  --w-fina:100;
+  --w-cheia:700;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --gutter:clamp(20px,5vw,64px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0;background:var(--void);color:var(--paper);
+  font-family:var(--ui);font-weight:var(--w-fina);
+  font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--paper);outline-offset:4px;border-radius:4px}
+::selection{background:var(--paper);color:var(--void)}
+
+.wrap{max-width:1520px;margin-inline:auto;padding-inline:var(--gutter)}
+
+/* ---------- texto que engrossa no hover, igual à home ---------- */
+.lk{display:inline-grid;justify-items:start}
+.lk::before{
+  content:attr(data-t);grid-area:1/1;
+  font-weight:var(--w-cheia);visibility:hidden;pointer-events:none;
+}
+.lk>span{
+  grid-area:1/1;font-weight:var(--w-fina);
+  transition:font-weight .44s var(--ease);
+}
+.lk:hover>span,.lk:focus-visible>span,
+a:hover .lk>span,a:focus-visible .lk>span{font-weight:var(--w-cheia)}
+
+/* ---------- topo ---------- */
+.top{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding-block:clamp(22px,4vh,38px);
+  border-bottom:1px solid var(--line);
+}
+.mark img{height:clamp(26px,3vw,38px);width:auto}
+.mark{display:block;opacity:.95;transition:opacity .3s ease}
+.mark:hover{opacity:1}
+.voltar{font-size:clamp(.85rem,1.1vw,.95rem);color:var(--smoke)}
+.voltar .lk>span{color:var(--smoke);transition:font-weight .44s var(--ease),color .3s ease}
+.voltar:hover .lk>span{color:var(--paper)}
+
+/* ---------- cabeçalho ---------- */
+.head{padding-block:clamp(44px,9vh,96px) clamp(30px,5vh,52px)}
+.head h1{
+  margin:0;font-weight:var(--w-fina);
+  font-size:clamp(2.6rem,9vw,6.5rem);line-height:.98;letter-spacing:-.03em;
+}
+.head p{
+  margin:clamp(16px,2.5vh,26px) 0 0;color:var(--smoke);
+  max-width:46ch;font-size:clamp(.95rem,1.3vw,1.1rem);
+}
+
+/* ---------- grade ---------- */
+.grid{
+  display:grid;gap:clamp(14px,2vw,28px);
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));
+  padding-bottom:clamp(50px,9vh,100px);
+}
+.card{display:block;position:relative}
+.shot{
+  position:relative;overflow:hidden;border-radius:14px;
+  background:#0E0E10;border:1px solid var(--line);
+  aspect-ratio:808/632;
+}
+.shot img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .7s var(--ease),opacity .4s ease;
+}
+.card:hover .shot img,.card:focus-visible .shot img{transform:scale(1.045)}
+/* véu que recua no hover: a capa acende quando o mouse chega */
+.shot::after{
+  content:"";position:absolute;inset:0;
+  background:rgba(0,0,0,.34);
+  transition:opacity .5s ease;
+}
+.card:hover .shot::after,.card:focus-visible .shot::after{opacity:0}
+
+.meta{
+  display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  padding:14px 2px 0;
+}
+.titulo{font-size:clamp(1rem,1.35vw,1.2rem);letter-spacing:-.01em}
+.seta{
+  flex:none;color:var(--smoke);font-size:1.05rem;line-height:1;
+  transition:transform .45s var(--ease),color .3s ease;
+}
+.card:hover .seta,.card:focus-visible .seta{transform:translate(3px,-3px);color:var(--paper)}
+
+/* ---------- rodapé ---------- */
+footer{
+  border-top:1px solid var(--line);
+  padding-block:clamp(32px,6vh,60px) clamp(40px,8vh,80px);
+}
+.foot-in{display:flex;flex-wrap:wrap;gap:18px 32px;align-items:baseline;justify-content:space-between}
+.foot-in p{margin:0;color:var(--smoke);font-size:.9rem}
+.links{display:flex;flex-wrap:wrap;gap:22px;font-size:clamp(.95rem,1.2vw,1.05rem)}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <a class="mark" href="./" aria-label="Ghort — voltar ao início">
+      <img src="assets/wordmark.webp" alt="ghort">
+    </a>
+    <a class="voltar" href="./">
+      <span class="lk" data-t="← voltar ao início"><span>← voltar ao início</span></span>
+    </a>
+  </div>
+
+  <header class="head">
+    <h1>Trabalhos</h1>
+    <p>Identidade visual, 3D, motion e direção de arte. Cada projeto abre por inteiro no Behance.</p>
+  </header>
+
+  <main class="grid">
+
+    <a class="card" href="https://www.behance.net/gallery/238317559/Fruit-Flavor" target="_blank" rel="noopener noreferrer">
+      <div class="shot"><img src="assets/work/fruit.webp" alt="Capa do projeto Fruit & Flavor" loading="lazy" width="760" height="594"></div>
+      <div class="meta">
+        <span class="titulo lk" data-t="Fruit &amp; Flavor"><span>Fruit &amp; Flavor</span></span>
+        <span class="seta" aria-hidden="true">↗</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.behance.net/gallery/238317359/Athena-Baby" target="_blank" rel="noopener noreferrer">
+      <div class="shot"><img src="assets/work/athena.webp" alt="Capa do projeto Athena Baby" loading="lazy" width="760" height="594"></div>
+      <div class="meta">
+        <span class="titulo lk" data-t="Athena Baby"><span>Athena Baby</span></span>
+        <span class="seta" aria-hidden="true">↗</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.behance.net/gallery/163794601/CONTAS-VENCIDAS-ITAU" target="_blank" rel="noopener noreferrer">
+      <div class="shot"><img src="assets/work/itau.webp" alt="Capa do projeto Contas Vencidas — Itaú" loading="lazy" width="760" height="594"></div>
+      <div class="meta">
+        <span class="titulo lk" data-t="Contas Vencidas — Itaú"><span>Contas Vencidas — Itaú</span></span>
+        <span class="seta" aria-hidden="true">↗</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.behance.net/gallery/89932683/CHURROOTS" target="_blank" rel="noopener noreferrer">
+      <div class="shot"><img src="assets/work/churroots.webp" alt="Capa do projeto Churroots" loading="lazy" width="760" height="594"></div>
+      <div class="meta">
+        <span class="titulo lk" data-t="Churroots"><span>Churroots</span></span>
+        <span class="seta" aria-hidden="true">↗</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.behance.net/gallery/87789871/Campanha-da-semana-do-mdico" target="_blank" rel="noopener noreferrer">
+      <div class="shot"><img src="assets/work/medico.webp" alt="Capa da campanha da semana do médico" loading="lazy" width="760" height="594"></div>
+      <div class="meta">
+        <span class="titulo lk" data-t="Semana do Médico"><span>Semana do Médico</span></span>
+        <span class="seta" aria-hidden="true">↗</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.behance.net/gallery/75902869/Social-Media" target="_blank" rel="noopener noreferrer">
+      <div class="shot"><img src="assets/work/social.webp" alt="Capa do projeto Social Media" loading="lazy" width="760" height="594"></div>
+      <div class="meta">
+        <span class="titulo lk" data-t="Social Media"><span>Social Media</span></span>
+        <span class="seta" aria-hidden="true">↗</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.behance.net/gallery/72591477/Projetos-3D" target="_blank" rel="noopener noreferrer">
+      <div class="shot"><img src="assets/work/tresd.webp" alt="Capa do projeto Projetos 3D" loading="lazy" width="760" height="594"></div>
+      <div class="meta">
+        <span class="titulo lk" data-t="Projetos 3D"><span>Projetos 3D</span></span>
+        <span class="seta" aria-hidden="true">↗</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.behance.net/gallery/60101161/Convite-Biomedicina-Izabela-Hendrix-20172" target="_blank" rel="noopener noreferrer">
+      <div class="shot"><img src="assets/work/convite.webp" alt="Capa do convite de Biomedicina — Izabela Hendrix" loading="lazy" width="760" height="594"></div>
+      <div class="meta">
+        <span class="titulo lk" data-t="Convite Biomedicina"><span>Convite Biomedicina</span></span>
+        <span class="seta" aria-hidden="true">↗</span>
+      </div>
+    </a>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot-in">
+    <p>Ghort Estúdio Criativo</p>
+    <div class="links">
+      <a href="https://www.behance.net/Gilmar_HT" target="_blank" rel="noopener noreferrer">
+        <span class="lk" data-t="Ver tudo no Behance"><span>Ver tudo no Behance</span></span>
+      </a>
+      <a href="https://www.instagram.com/ghortdesign/" target="_blank" rel="noopener noreferrer">
+        <span class="lk" data-t="Instagram"><span>Instagram</span></span>
+      </a>
+      <a href="https://wa.me/5531986775149?text=Ol%C3%A1%2C%20Ghort%21%20%F0%9F%91%8B%0AEncontrei%20voc%C3%AAs%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20como%20voc%C3%AAs%20podem%20me%20ajudar.%20Poderiam%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F" target="_blank" rel="noopener noreferrer">
+        <span class="lk" data-t="WhatsApp"><span>WhatsApp</span></span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
