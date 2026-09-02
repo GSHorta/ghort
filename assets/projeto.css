@@ -1,0 +1,94 @@
+/* ==========================================================
+   GHORT — página de projeto
+   Mesmo vocabulário da home e do portfólio: preto, Outfit,
+   e o peso da fonte como interação (Thin parado, Bold no hover).
+   As peças do projeto ficam empilhadas, quase sem respiro entre
+   elas, para o trabalho ser lido como uma sequência só.
+   ========================================================== */
+:root{
+  --void:#000000;
+  --paper:#FFFFFF;
+  --smoke:#8C8590;
+  --line:rgba(255,255,255,.14);
+  --ui:"Outfit","Century Gothic",system-ui,-apple-system,sans-serif;
+  --w-fina:100;
+  --w-cheia:700;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --gutter:clamp(20px,5vw,64px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0;background:var(--void);color:var(--paper);
+  font-family:var(--ui);font-weight:var(--w-fina);
+  font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--paper);outline-offset:4px;border-radius:4px}
+::selection{background:var(--paper);color:var(--void)}
+
+.wrap{max-width:1520px;margin-inline:auto;padding-inline:var(--gutter)}
+
+/* ---------- texto que engrossa no hover ---------- */
+.lk{display:inline-grid;justify-items:start}
+.lk::before{
+  content:attr(data-t);grid-area:1/1;
+  font-weight:var(--w-cheia);visibility:hidden;pointer-events:none;
+}
+.lk>span{
+  grid-area:1/1;font-weight:var(--w-fina);
+  transition:font-weight .44s var(--ease);
+}
+.lk:hover>span,.lk:focus-visible>span,
+a:hover .lk>span,a:focus-visible .lk>span{font-weight:var(--w-cheia)}
+
+/* ---------- topo ---------- */
+.top{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding-block:clamp(22px,4vh,38px);
+  border-bottom:1px solid var(--line);
+}
+.mark img{height:clamp(26px,3vw,38px);width:auto}
+.mark{display:block}
+.voltar{font-size:clamp(.85rem,1.1vw,.95rem);color:var(--smoke)}
+.voltar .lk>span{color:var(--smoke);transition:font-weight .44s var(--ease),color .3s ease}
+.voltar:hover .lk>span{color:var(--paper)}
+
+/* ---------- título do projeto ---------- */
+.titulo-proj{padding-block:clamp(38px,8vh,84px) clamp(26px,5vh,52px)}
+.titulo-proj h1{
+  margin:0;font-weight:var(--w-fina);
+  font-size:clamp(2.2rem,7vw,5rem);line-height:1;letter-spacing:-.03em;
+}
+
+/* ---------- as peças ----------
+   largura maior que o texto: o trabalho manda na página */
+.pecas{
+  max-width:1280px;margin-inline:auto;
+  padding-inline:clamp(0px,3vw,32px);
+  display:flex;flex-direction:column;
+  gap:clamp(8px,1.2vw,16px);
+}
+.pecas img{
+  width:100%;height:auto;
+  border-radius:clamp(0px,.6vw,10px);
+  background:#0E0E10;
+}
+
+/* ---------- próximo trabalho ---------- */
+.proximo{
+  display:flex;flex-direction:column;gap:6px;
+  padding-block:clamp(48px,10vh,110px) clamp(56px,11vh,120px);
+  margin-top:clamp(30px,6vh,60px);
+  border-top:1px solid var(--line);
+}
+.rotulo{
+  font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);
+}
+.nome{font-size:clamp(1.8rem,5vw,3.4rem);line-height:1.05;letter-spacing:-.02em}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
