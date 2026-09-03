@@ -69,11 +69,12 @@ a{color:inherit;text-decoration:none}
   border-radius:14px;background:#0E0E10;border:1px solid var(--linha);
   aspect-ratio:808/632;
 }
-.card img{
-  width:100%;height:100%;object-fit:cover;
+.card img,.card video{
+  width:100%;height:100%;object-fit:cover;display:block;
   transition:transform .7s var(--ease);
 }
-.card:hover img,.card:focus-visible img{transform:scale(1.045)}
+.card:hover img,.card:focus-visible img,
+.card:hover video,.card:focus-visible video{transform:scale(1.045)}
 /* véu que recua no hover: a capa acende quando o mouse chega */
 .card::after{
   content:"";position:absolute;inset:0;
@@ -81,6 +82,21 @@ a{color:inherit;text-decoration:none}
   transition:opacity .5s ease;
 }
 .card:hover::after,.card:focus-visible::after{opacity:0}
+
+/* ---------- destaque ----------
+   O Açolab é o trabalho principal: ocupa a linha inteira, em
+   16:9, e a capa se mexe sozinha — é uma tela de menu, afinal.
+   Véu mais leve, porque a peça já nasce escura. */
+.card--destaque{grid-column:1/-1;aspect-ratio:16/9}
+.card--destaque::after{background:rgba(0,0,0,.18)}
+.card--destaque video{object-fit:contain;background:#000}
+.card--destaque .selo{
+  position:absolute;left:clamp(14px,2.2vw,26px);bottom:clamp(12px,2vw,22px);z-index:3;
+  margin:0;font-size:clamp(.68rem,1vw,.78rem);letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);text-shadow:0 1px 14px rgba(0,0,0,.9);
+  transition:color .4s ease;
+}
+.card--destaque:hover .selo,.card--destaque:focus-visible .selo{color:#fff}
 
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important}
@@ -95,6 +111,15 @@ a{color:inherit;text-decoration:none}
   </div>
 
   <main class="grade">
+    <a class="card card--destaque" href="acolab-ventures.html" aria-label="Açolab Ventures — ArcelorMittal">
+      <video id="capa-acolab" muted loop playsinline autoplay preload="metadata"
+             poster="assets/work/acolab.webp" width="1600" height="900"
+             aria-label="Açolab Ventures — tela de menu do jogo, em loop">
+        <source src="assets/work/acolab/menu.webm" type="video/webm">
+        <source src="assets/work/acolab/menu.mp4" type="video/mp4">
+      </video>
+      <p class="selo">Açolab Ventures — ArcelorMittal</p>
+    </a>
     <a class="card" href="fruit-flavor.html" aria-label="Fruit &amp; Flavor">
       <img src="assets/work/fruit.webp" alt="Fruit &amp; Flavor" loading="lazy" width="760" height="594">
     </a>
@@ -106,6 +131,16 @@ a{color:inherit;text-decoration:none}
     </a>
   </main>
 </div>
+
+<script>
+/* quem pediu menos movimento vê a capa parada, no pôster */
+(function(){
+  var v = document.getElementById("capa-acolab");
+  if(v && matchMedia("(prefers-reduced-motion: reduce)").matches){
+    v.removeAttribute("autoplay"); v.pause();
+  }
+})();
+</script>
 
 </body>
 </html>
