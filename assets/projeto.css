@@ -68,8 +68,8 @@ a:hover .lk>span,a:focus-visible .lk>span{font-weight:var(--w-cheia)}
   display:flex;flex-direction:column;
   gap:0;
 }
-.pecas img{
-  width:100%;height:auto;
+.pecas img,.pecas video.loop{
+  width:100%;height:auto;display:block;
   background:#F2F0F3;
 }
 
@@ -91,6 +91,8 @@ a:hover .lk>span,a:focus-visible .lk>span{font-weight:var(--w-cheia)}
   border-radius:clamp(0px,.6vw,10px);overflow:hidden;
   background:#0A0A0A;
 }
+/* o filme do Açolab é 16:9 e ocupa a largura das peças */
+.filme--largo{max-width:none;aspect-ratio:16/9;margin-top:0;border-radius:0}
 .filme video{width:100%;height:100%;display:block;object-fit:contain;background:#0A0A0A}
 
 @media (prefers-reduced-motion:reduce){

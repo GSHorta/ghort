@@ -4,331 +4,88 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Açolab Ventures — Ghort Estúdio Criativo</title>
-<meta name="description" content="A tese de corporate venture capital da ArcelorMittal contada como jogo de 8 bits: menu, seleção de personagem e três fases. Direção de arte de Gilmar Horta.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
-<meta name="theme-color" content="#07060A">
-<meta property="og:title" content="Açolab Ventures — Ghort Estúdio Criativo">
-<meta property="og:description" content="A tese de corporate venture capital da ArcelorMittal contada como jogo de 8 bits.">
-<meta property="og:image" content="https://ghort.com.br/assets/work/acolab.webp">
-<meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Press+Start+2P&display=swap">
-<link rel="stylesheet" href="assets/acolab.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap">
+<link rel="stylesheet" href="assets/projeto.css">
 </head>
 <body>
 
-<!-- ==========================================================
-     HUD: a barra de status do jogo faz as vezes de navegação.
-     O placar acompanha a rolagem e termina em 0026350 — a
-     mesma pontuação com que o filme fecha.
-     ========================================================== -->
-<div class="hud">
-  <div class="hud-esq">
-    <a href="portfolio.html" aria-label="Voltar aos trabalhos">&lt; VOLTAR</a>
+<div class="wrap">
+  <div class="top">
+    <a class="voltar" href="portfolio.html">
+      <span class="lk" data-t="← voltar aos trabalhos"><span>← voltar aos trabalhos</span></span>
+    </a>
   </div>
-  <p class="hud-meio" id="fase-atual">PRESS START</p>
-  <div class="hud-dir">
-    <span class="placar"><b>SCORE</b><span id="placar">0000000</span></span>
-    <button class="btn-anim" id="btn-anim" type="button" aria-pressed="false">ANIM: ON</button>
-  </div>
+
+  <header class="titulo-proj">
+    <h1>Açolab Ventures</h1>
+  </header>
 </div>
 
-<!-- ---------- abertura: a tela de menu, em loop ---------- -->
-<div class="hero crt">
-  <video id="hero-video" muted loop playsinline autoplay preload="auto"
+<main class="pecas">
+  <!-- o projeto é um filme: as peças são movimento, não captura de tela -->
+  <video class="loop" muted loop playsinline autoplay preload="metadata"
          poster="assets/work/acolab/menu.webp" width="1600" height="900"
-         aria-label="Tela de menu do Açolab Ventures: o cursor caveira percorre PRESS START, SETTINGS e EXIT">
+         aria-label="Açolab Ventures — tela de menu">
     <source src="assets/work/acolab/menu.webm" type="video/webm">
     <source src="assets/work/acolab/menu.mp4" type="video/mp4">
   </video>
-  <p class="insert"><span>INSERT COIN</span></p>
-</div>
 
-<header class="cabeca texto">
-  <h1>Açolab <b>Ventures</b></h1>
-  <p class="sub">ARCELORMITTAL · 2022 · DIREÇÃO DE ARTE</p>
+  <video class="loop" muted loop playsinline autoplay preload="metadata"
+         poster="assets/work/acolab/select-poster.webp" width="1280" height="720"
+         aria-label="Açolab Ventures — seleção de personagem">
+    <source src="assets/work/acolab/select.webm" type="video/webm">
+    <source src="assets/work/acolab/select.mp4" type="video/mp4">
+  </video>
 
-  <p class="corpo">A ArcelorMittal precisava explicar sua tese de corporate venture
-  capital — que empresa procura, o que oferece em troca, como funciona o processo —
-  para gente que nunca tinha ouvido falar do assunto. Em vez de um institucional,
-  o filme virou um jogo.</p>
+  <video class="loop" muted loop playsinline autoplay preload="metadata"
+         poster="assets/work/acolab/fase1-poster.webp" width="1280" height="720"
+         aria-label="Açolab Ventures — fase 1">
+    <source src="assets/work/acolab/fase1.webm" type="video/webm">
+    <source src="assets/work/acolab/fase1.mp4" type="video/mp4">
+  </video>
 
-  <p class="corpo">A direção de arte fechou um vocabulário e não abriu mão dele:
-  tipografia bitmap, grade neon com ponto de fuga no centro, o laranja da marca
-  contra o magenta do piso, e um HUD — vidas, moedas, pontuação — que segue a
-  apresentadora do primeiro ao último quadro. Cada ideia do roteiro precisou caber
-  nesse sistema: virar item de menu, ficha de personagem, inimigo ou fase. Nada de
-  caixa de texto solta por cima da imagem.</p>
+  <video class="loop" muted loop playsinline autoplay preload="metadata"
+         poster="assets/work/acolab/fase2-poster.webp" width="1280" height="720"
+         aria-label="Açolab Ventures — fase 2">
+    <source src="assets/work/acolab/fase2.webm" type="video/webm">
+    <source src="assets/work/acolab/fase2.mp4" type="video/mp4">
+  </video>
 
-  <p class="corpo">A apresentadora não narra por fora: ela está dentro do jogo, num
-  círculo de webcam de streamer, reagindo ao que acontece na tela ao lado.</p>
+  <video class="loop" muted loop playsinline autoplay preload="metadata"
+         poster="assets/work/acolab/sprites-poster.webp" width="1600" height="900"
+         aria-label="Açolab Ventures — sprites dos personagens">
+    <source src="assets/work/acolab/sprites.webm" type="video/webm">
+    <source src="assets/work/acolab/sprites.mp4" type="video/mp4">
+  </video>
 
-  <div class="ficha">
-    <dl>
-      <dt>CLIENTE</dt><dd>ArcelorMittal</dd>
-      <dt>AGÊNCIA</dt><dd>Buffalo</dd>
-      <dt>DIREÇÃO</dt><dd>Gilmar Horta — direção de arte</dd>
-      <dt>EQUIPE</dt><dd>Francis, animação · Lorena Otero, roteiro</dd>
-      <dt>ENTREGA</dt><dd>Filme de 3'29" e o sistema de pixel art que o sustenta —
-      cenários, personagens, itens, HUD e telas de interface</dd>
-    </dl>
+  <div class="filme filme--largo">
+    <video controls preload="metadata" playsinline
+           poster="assets/work/acolab/filme-poster.webp" width="1920" height="1080"
+           aria-label="Açolab Ventures — filme completo">
+      <source src="assets/work/acolab/filme.webm" type="video/webm">
+      <source src="assets/work/acolab/filme.mp4" type="video/mp4">
+    </video>
   </div>
-</header>
+</main>
 
-<!-- ==========================================================
-     Os capítulos seguem a ordem do próprio jogo:
-     abertura → settings → seleção → três fases → créditos.
-     O filme inteiro fica por último, como recompensa.
-     ========================================================== -->
-
-<section class="cap" data-fase="00 · ABERTURA">
-  <header class="cap-cab texto rv">
-    <p class="tag"><span class="coin" aria-hidden="true"></span>00 <em>- ABERTURA</em></p>
-    <p class="lead">O logotipo entra sobre a imagem real. Antes de explicar qualquer
-    coisa, o filme avisa em que língua vai falar.</p>
-  </header>
-  <div class="pecas">
-    <img class="rv" src="assets/work/acolab/abertura.webp" alt="Quadro de abertura: a apresentadora de headset, com o logotipo Açolab Ventures em pixel art e uma fileira de moedas sobre a imagem" width="1600" height="900" fetchpriority="high" decoding="async">
-  </div>
-</section>
-
-<section class="cap" data-fase="01 · SETTINGS">
-  <header class="cap-cab texto rv">
-    <p class="tag"><span class="coin" aria-hidden="true"></span>01 <em>- SETTINGS</em></p>
-    <p class="lead">O que a ArcelorMittal põe na mesa vira menu de configuração:
-    um item por vez, aceso em laranja quando chega a vez dele, apagado quando passa.</p>
-  </header>
-  <div class="pecas">
-    <img class="rv" src="assets/work/acolab/settings.webp" alt="Tela de SETTINGS: os itens Time de profissionais e Possibilidade de abrir portas, com a apresentadora num círculo à direita" width="1600" height="900" loading="lazy" decoding="async">
-  </div>
-</section>
-
-<section class="cap" data-fase="02 · SELECT PLAYER">
-  <header class="cap-cab texto rv">
-    <p class="tag"><span class="coin" aria-hidden="true"></span>02 <em>- SELECT PLAYER</em></p>
-    <p class="lead">O perfil de empresa que a tese procura vira tela de seleção de
-    personagem. Cada ficha é um recorte de mercado; a certa acende, as outras ficam
-    em cinza.</p>
-  </header>
-  <div class="pecas">
-    <img class="rv" src="assets/work/acolab/elenco.webp" alt="Os cinco personagens do jogo em pixel art, enfileirados sob o título Tese ArcelorMittal" width="1600" height="900" loading="lazy" decoding="async">
-    <div class="loop rv">
-      <video class="gif" muted loop playsinline preload="none"
-             poster="assets/work/acolab/select-poster.webp" width="1280" height="720"
-             aria-label="Loop da tela de seleção: o cursor passa de uma ficha a outra e o texto do perfil muda junto">
-        <source src="assets/work/acolab/select.webm" type="video/webm">
-        <source src="assets/work/acolab/select.mp4" type="video/mp4">
-      </video>
-      <p class="selo">SELECT PLAYER</p>
-    </div>
-  </div>
-</section>
-
-<section class="cap" data-fase="03 · FASE 01">
-  <header class="cap-cab texto rv">
-    <p class="tag"><span class="coin" aria-hidden="true"></span>03 <em>- FASE 01 · PROSPECÇÃO</em></p>
-    <p class="lead">Prospecção, análise e inteligência estratégica num mapa visto de
-    cima: moedas para juntar, inimigos para desviar, um caminho de pedra que
-    organiza a leitura.</p>
-  </header>
-  <div class="pecas">
-    <img class="rv" src="assets/work/acolab/fase-card.webp" alt="Cartela de transição: a moeda e o letreiro FASE - 01 sobre a grade neon" width="1600" height="900" loading="lazy" decoding="async">
-    <img class="rv" src="assets/work/acolab/fase1-mapa.webp" alt="Cenário da fase 1: mapa visto de cima com ruas, água, árvores, moedas e inimigos cor-de-rosa" width="1600" height="900" loading="lazy" decoding="async">
-    <div class="loop rv">
-      <video class="gif" muted loop playsinline preload="none"
-             poster="assets/work/acolab/fase1-poster.webp" width="1280" height="720"
-             aria-label="Loop da fase 1: a personagem atravessa o mapa recolhendo moedas">
-        <source src="assets/work/acolab/fase1.webm" type="video/webm">
-        <source src="assets/work/acolab/fase1.mp4" type="video/mp4">
-      </video>
-      <p class="selo">FASE 01 · EM JOGO</p>
-    </div>
-  </div>
-</section>
-
-<section class="cap" data-fase="04 · FASE 02">
-  <header class="cap-cab texto rv">
-    <p class="tag"><span class="coin" aria-hidden="true"></span>04 <em>- FASE 02 · DUE DILIGENCE</em></p>
-    <p class="lead">Negociação e due diligence em mar aberto. A parte chata do
-    processo é a mais difícil do jogo — e o tubarão não precisa de legenda.</p>
-  </header>
-  <div class="pecas">
-    <img class="rv" src="assets/work/acolab/fase2-mapa.webp" alt="Cenário da fase 2: mar de água ondulada, barco de madeira e pedras" width="1600" height="900" loading="lazy" decoding="async">
-    <img class="rv" src="assets/work/acolab/fase2-jogo.webp" alt="Fase 2 em jogo: a personagem no barco, o balão dificuld@d&amp;s#! e a legenda Due Diligence" width="1600" height="900" loading="lazy" decoding="async">
-    <div class="loop rv">
-      <video class="gif" muted loop playsinline preload="none"
-             poster="assets/work/acolab/fase2-poster.webp" width="1280" height="720"
-             aria-label="Loop da fase 2: o tubarão atravessa a tela enquanto a personagem escapa">
-        <source src="assets/work/acolab/fase2.webm" type="video/webm">
-        <source src="assets/work/acolab/fase2.mp4" type="video/mp4">
-      </video>
-      <p class="selo">FASE 02 · O TUBARÃO</p>
-    </div>
-  </div>
-</section>
-
-<section class="cap" data-fase="05 · FASE 03">
-  <header class="cap-cab texto rv">
-    <p class="tag"><span class="coin" aria-hidden="true"></span>05 <em>- FASE 03 · INCORPORAÇÃO</em></p>
-    <p class="lead">Incorporação e follow on: a fase de plataforma, com o troféu no
-    alto e o placar no maior número que aparece no filme.</p>
-  </header>
-  <div class="pecas">
-    <img class="rv" src="assets/work/acolab/fase3-mapa.webp" alt="Cenário da fase 3: céu roxo, plataformas com árvores e nuvens em pixel art" width="1600" height="900" loading="lazy" decoding="async">
-    <img class="rv" src="assets/work/acolab/fase3-jogo.webp" alt="Fase 3 em jogo: o letreiro Follow on, a personagem e o troféu no alto da plataforma" width="1600" height="900" loading="lazy" decoding="async">
-  </div>
-</section>
-
-<section class="cap" data-fase="06 · SPRITES">
-  <header class="cap-cab texto rv">
-    <p class="tag"><span class="coin" aria-hidden="true"></span>06 <em>- A FOLHA DE ELEMENTOS</em></p>
-    <p class="lead">Tudo o que entra em cena sai daqui: personagens em duas poses,
-    inimigos, o barco, o tubarão, as pedras, e a papelaria do HUD — relógio, vidas,
-    moeda, diamante, baú, troféu, cadeado, pergaminho.</p>
-  </header>
-  <div class="pecas">
-    <div class="loop rv">
-      <video class="gif" muted loop playsinline preload="none"
-             poster="assets/work/acolab/sprites-poster.webp" width="1600" height="900"
-             aria-label="Loop da folha de elementos: os sprites do jogo em animação de repouso">
-        <source src="assets/work/acolab/sprites.webm" type="video/webm">
-        <source src="assets/work/acolab/sprites.mp4" type="video/mp4">
-      </video>
-      <p class="selo">SPRITE SHEET</p>
-    </div>
-  </div>
-</section>
-
-<section class="cap" data-fase="07 · CRÉDITOS">
-  <header class="cap-cab texto rv">
-    <p class="tag"><span class="coin" aria-hidden="true"></span>07 <em>- CRÉDITOS</em></p>
-    <p class="lead">A cartela final fecha o ciclo: quem fez, para quem, na mesma
-    grade em que o filme começou.</p>
-  </header>
-  <div class="pecas">
-    <img class="rv" src="assets/work/acolab/creditos.webp" alt="Cartela de créditos: direção de arte Gilmar Horta, animação Francis, roteiro Lorena Otero, agência Buffalo, cliente ArcelorMittal" width="1600" height="900" loading="lazy" decoding="async">
-  </div>
-</section>
-
-<!-- ---------- o filme, por último ---------- -->
-<section class="cap" data-fase="08 · O FILME">
-  <header class="cap-cab texto rv">
-    <p class="tag"><span class="coin" aria-hidden="true"></span>08 <em>- O FILME</em></p>
-    <p class="lead">Três minutos e vinte e nove segundos, do PRESS START aos créditos.
-    Com som.</p>
-  </header>
-  <div class="filme rv">
-    <div class="quadro">
-      <video controls preload="none" playsinline
-             poster="assets/work/acolab/filme-poster.webp" width="1920" height="1080"
-             aria-label="Filme completo do projeto Açolab Ventures">
-        <source src="assets/work/acolab/filme.webm" type="video/webm">
-        <source src="assets/work/acolab/filme.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>
-</section>
-
-<footer class="fim">
-  <p class="gameover">GAME OVER</p>
-  <a href="portfolio.html">
+<div class="wrap voltar-fim">
+  <a class="voltar" href="portfolio.html">
     <span class="lk" data-t="← voltar aos trabalhos"><span>← voltar aos trabalhos</span></span>
   </a>
-</footer>
+</div>
 
 <script>
+/* quem pediu menos movimento vê os loops parados, no pôster */
 (function(){
-  "use strict";
-  var calmo = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-  /* ---------- entrada em degraus ---------- */
-  var alvos = document.querySelectorAll(".rv");
-  if(calmo.matches || !("IntersectionObserver" in window)){
-    alvos.forEach(function(el){ el.classList.add("on"); });
-  }else{
-    var oRv = new IntersectionObserver(function(ents){
-      ents.forEach(function(e){
-        if(e.isIntersecting){ e.target.classList.add("on"); oRv.unobserve(e.target); }
-      });
-    },{rootMargin:"0px 0px -12% 0px"});
-    alvos.forEach(function(el){ oRv.observe(el); });
-  }
-
-  /* ---------- os loops só rodam quando estão em quadro ----------
-     seis vídeos tocando ao mesmo tempo derrubam a página no
-     celular; fora da tela, cada um pausa e devolve a CPU */
-  var loops = Array.prototype.slice.call(document.querySelectorAll("video.gif"));
-  var herói = document.getElementById("hero-video");
-  var todos = herói ? loops.concat([herói]) : loops;
-  var pausado = false;
-
-  function tocar(v){
-    if(pausado) return;
-    if(v.preload === "none"){ v.preload = "auto"; v.load(); }
-    var p = v.play();
-    if(p && p.catch) p.catch(function(){});
-  }
-
-  if("IntersectionObserver" in window){
-    var oPlay = new IntersectionObserver(function(ents){
-      ents.forEach(function(e){
-        if(e.isIntersecting) tocar(e.target); else e.target.pause();
-      });
-    },{rootMargin:"200px 0px"});
-    todos.forEach(function(v){ oPlay.observe(v); });
-  }else{
-    todos.forEach(tocar);
-  }
-
-  /* ---------- botão de pausa geral ---------- */
-  var btn = document.getElementById("btn-anim");
-  function aplicar(){
-    btn.setAttribute("aria-pressed", String(pausado));
-    btn.textContent = pausado ? "ANIM: OFF" : "ANIM: ON";
-    todos.forEach(function(v){
-      if(pausado) v.pause();
-      else if(emQuadro(v)) tocar(v);
-    });
-    document.documentElement.style.setProperty("--pausa", pausado ? "paused" : "running");
-  }
-  function emQuadro(v){
-    var r = v.getBoundingClientRect();
-    return r.bottom > 0 && r.top < window.innerHeight;
-  }
-  btn.addEventListener("click", function(){ pausado = !pausado; aplicar(); });
-
-  /* quem pediu menos movimento chega com tudo parado */
-  if(calmo.matches){ pausado = true; aplicar(); }
-
-  /* ---------- placar e fase na HUD ----------
-     o placar sobe com a rolagem e para em 0026350: a pontuação
-     com que a personagem fecha a última fase do filme */
-  var elPlacar = document.getElementById("placar");
-  var elFase   = document.getElementById("fase-atual");
-  var caps     = Array.prototype.slice.call(document.querySelectorAll(".cap[data-fase]"));
-  var MAX = 26350, tick = null;
-
-  function pinta(){
-    tick = null;
-    var alt = document.documentElement.scrollHeight - window.innerHeight;
-    var pos = alt > 0 ? Math.min(1, Math.max(0, window.scrollY / alt)) : 0;
-    var pts = Math.round(pos * MAX / 50) * 50;
-    elPlacar.textContent = String(pts).padStart(7, "0");
-
-    var atual = "PRESS START";
-    for(var i = 0; i < caps.length; i++){
-      if(caps[i].getBoundingClientRect().top <= window.innerHeight * 0.45){
-        atual = caps[i].getAttribute("data-fase");
-      }
-    }
-    if(elFase.textContent !== atual) elFase.textContent = atual;
-  }
-  addEventListener("scroll", function(){ if(!tick) tick = requestAnimationFrame(pinta); }, {passive:true});
-  addEventListener("resize", pinta, {passive:true});
-  pinta();
+  if(!matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.querySelectorAll("video.loop").forEach(function(v){
+    v.removeAttribute("autoplay"); v.pause();
+  });
 })();
 </script>
 
